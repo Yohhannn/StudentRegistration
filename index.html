@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cebu Technological University · Student Registrar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header. The school name and motto are filled in again by app.js from the school object. -->
+    <header class="topbar">
+      <div class="topbar-inner">
+      <div class="brand">
+        <div>
+          <p class="eyebrow" id="school-name">Cebu Technological University</p>
+          <h1>Student Registrar</h1>
+        </div>
+      </div>
+      <p class="motto" id="school-motto">Main Campus · Student information system</p>
+      </div>
+    </header>
+
+    <main>
+      <!-- Form. Submitting this calls the addStudent function in app.js. -->
+      <section class="panel form-panel">
+        <div class="panel-head">
+          <h2>Add a student</h2>
+          <p>Fill in the form. The page stores each person as an object in an array.</p>
+        </div>
+
+        <form id="student-form" novalidate>
+          <div class="split names">
+            <label>
+              First name
+              <input id="first-name" name="firstName" type="text" autocomplete="given-name" placeholder="e.g. Sofia" required />
+            </label>
+            <label>
+              Last name
+              <input id="last-name" name="lastName" type="text" autocomplete="family-name" placeholder="e.g. Reyes" required />
+            </label>
+          </div>
+          <div class="split">
+            <label>
+              Year
+              <select id="year" name="year" required>
+                <option value="">Select</option>
+                <option>1st Year</option>
+                <option>2nd Year</option>
+                <option>3rd Year</option>
+                <option>4th Year</option>
+              </select>
+            </label>
+            <label>
+              Program
+              <input id="program" name="program" type="text" placeholder="e.g. BSIT" required />
+            </label>
+          </div>
+          <label>
+            Email
+            <input id="email" name="email" type="email" placeholder="name@ctu.edu.ph" required />
+          </label>
+          <p class="form-error" id="form-error" hidden></p>
+          <button type="submit">Add student</button>
+        </form>
+
+        <!-- Short reminders of the seven ideas. The real code is in app.js. -->
+        <ol class="concepts" aria-label="Concepts used on this page">
+          <li><strong>Variables</strong> <span>const and let hold values like the id prefix and the add count.</span></li>
+          <li><strong>Class</strong> <span>Student describes what every student has.</span></li>
+          <li><strong>Factory</strong> <span>createStudent cleans the input and builds each Student.</span></li>
+          <li><strong>Object</strong> <span>school is one object, and each new student is one Student object.</span></li>
+          <li><strong>Singleton</strong> <span>There is only one Registrar, and everyone shares it.</span></li>
+          <li><strong>Array</strong> <span>The roster keeps those objects in a list.</span></li>
+          <li><strong>Function</strong> <span>addStudent runs the steps when you submit.</span></li>
+        </ol>
+      </section>
+
+      <!-- Roster. app.js fills this list from the school.students array. -->
+      <section class="panel roster-panel">
+        <div class="panel-head roster-head">
+          <div>
+            <h2>Roster</h2>
+            <p id="roster-count">0 students</p>
+          </div>
+        </div>
+        <ul class="roster" id="roster"></ul>
+      </section>
+
+      <!-- Log of the last steps, plus a text copy of the students array. -->
+      <section class="panel trace-panel">
+        <div class="panel-head">
+          <h2>What the code just did</h2>
+          <p>This log updates every time you add someone. It is the same story as <code>app.js</code>.</p>
+        </div>
+        <div class="trace-grid">
+          <div>
+            <ol class="trace" id="trace"></ol>
+            <!-- Live values of the variables at the top of app.js. -->
+            <h3 class="sub-head">Variables right now</h3>
+            <table class="variables">
+              <thead>
+                <tr><th>Keyword</th><th>Name</th><th>Value</th><th>Type</th></tr>
+              </thead>
+              <tbody id="variables"></tbody>
+            </table>
+          </div>
+          <pre class="snapshot" id="snapshot" aria-label="Current students array"></pre>
+        </div>
+      </section>
+    </main>
+
+    <!-- app.js holds the variables, class, factory, object, singleton, array, and functions. -->
+    <script src="app.js"></script>
+  </body>
+</html>
