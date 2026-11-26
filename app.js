@@ -435,3 +435,6 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
 }
+
+
+// COMMENTS ADDED
